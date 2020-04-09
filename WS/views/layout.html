@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+
+<html>
+
+    <!--Responsável por receber as configuraçõees da página-->
+    <head>
+
+        <!--Ajusta a escrita dos caracteres com acentuação-->
+        <meta charset="UTF-8">
+
+                
+        <!--  Titulo da aba -->
+        
+        <!--Caso não encotes o bloco de código "title" dentro do arquivo que a extendeu, será excutado a linha
+            que esta dentro do bloco de código, caso encontre sera injetado o bloco de código.    
+        -->
+        {% block title%}
+            <title>Casa Criativa</title>
+        {% endblock title%}
+
+        <!--Injeta um trecho de código de outro arquivo através do nunjucks-->
+        {% include "head.html" %}
+
+    </head>
+
+    <body id="{{bodyId}}">
+
+        <div id="container">
+
+            <!--Injeta um bloco especifico de código de outro aquivo
+                1) vai chamar a renderizadção uma pagina (exemplo, index.html)
+                2) está pagina vai extender este aquivo (layout.html), isso vai fazer com que todo
+                    este arquivo seja executado até este block. Depois disso, vai procurar dentro do
+                    arquivo que a extendeu (no caso deste exemplo o index.html) um bloco de código com este nome "content".
+                    Caso encontre, vai injetar o código deste bloco neste ponto.
+                
+                Obs: Neste caso, não se usa o o include, porque no include sou obrigado a fixar (chumbar) o caminho de onde o
+                     conteúdo irá vir, neste caso, consigo ter flexibilidade para injetar um código de acordo com a pagina que
+                     chamou (extendeu) essa páginha (layout.html)
+            -->
+            {% block content %}
+
+            {% endblock %}
+
+
+        </div>
+
+        <!-- MODAL -->   
+        <!--Injeta todo o código de outro arquivo através do nunjucks-->
+        {% include "modal.html" %}
+    
+
+        <!--  aponta para onte esta o arquivo com a parte javascrip do código -->
+        <script src="/scripts.js"></script>
+
+    </body>
+
+</html>

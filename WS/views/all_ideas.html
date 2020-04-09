@@ -1,0 +1,30 @@
+{% for item in ideas %}
+
+    <div class="idea">
+        <img 
+            src="{{item.image}}" 
+            alt="Imagem de  {{item.title}}">
+        
+        <div class="content">
+            <div class="cabecIdea" >
+                <h3>{{item.title}}</h3>
+               
+                <a id="iconRemove" href="/remove/{{item.id}}">
+                    <img
+                    src="/delete.svg" 
+                    alt="Icon remove"
+                    style="cursor: pointer;"               
+                    id="{{item.id}}"
+                    >
+                </a>
+
+            </div>
+            <p>{{item.category}}</p>
+            <div class="description">
+                {{item.description}}
+            </div>
+            <a href="{{item.link}}" target="_blank">Ir para ideia</a>
+        </div>
+    </div>
+
+{% endfor %}

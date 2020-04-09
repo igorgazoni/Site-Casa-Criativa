@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set bodyId = "page-ideas" %}
+
+
+{% block title%}
+    <title>Ideias - Casa Criativa</title>
+{% endblock title%}
+
+
+{% block content%}
+    <header>
+        <a href="/">
+            <img href="/" src="logo.png" alt="Imagem da Logomarca">
+        </a>
+        
+        
+        <nav>
+            <li><a href="/">Início</a></li>
+            <li><a href="#">Ideias</a></li>
+            <li><a class="button" href="#modal .content" onclick="onOff()">Nova Ideia</a></li>
+        </nav>
+
+
+    </header>
+
+    <section id="title">
+        <p>em exibição</p>
+        <h1>Ideias</h1>
+    </section>
+
+    <main>
+        <section id="ideas">
+            
+            <!--Injeta um trecho de código de outro arquivo através do nunjucks-->
+            <!--faz a inlclusão das ideias na tela-->
+            {% include "all_ideas.html" %}
+
+
+        </section>      
+
+    </main>
+
+
+    <footer>
+        Com 🧡 <a href="https://rocketseat.com.br/" target="_blank">Rocketseat</a> 
+    </footer>
+
+{% endblock %}   
+
+</body>
