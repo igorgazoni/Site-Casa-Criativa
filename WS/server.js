@@ -21,6 +21,16 @@ nunjuncks.configure("views", {
                     // EM AMBIENTE DE PRODUÇÂO COLOCAR FALSE (pois tem ganho de processamento nas paginas.)
 }) 
 
+const Piii = require("piii");
+const piiiFilters = require("piii-filters");
+
+const piii = new Piii({
+  filters: [
+    ...Object.values(piiiFilters)
+  ]
+});
+
+
 /*
 const ideas = [  
     
@@ -173,10 +183,10 @@ server.post("/",function(req,res){
     `
     const values = [
         req.body.image,
-        req.body.title,
-        req.body.category,
-        req.body.description,
-        req.body.link
+        piii.filter(req.body.title),
+        piii.filter(req.body.category),
+        piii.filter(req.body.description),
+        piii.filter(req.body.link)
         
    ]
 
@@ -190,6 +200,8 @@ server.post("/",function(req,res){
    })
 
 })
+
+
 
 // levata servidro na porta 3000
 server.listen(3000)
